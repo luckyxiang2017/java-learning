@@ -1,0 +1,38 @@
+ext {
+    springboot_version = "1.5.9.RELEASE"
+}
+
+buildscript {
+    ext {
+        springboot_version = "1.5.9.RELEASE"
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springboot_version}")
+    }
+}
+
+group 'com.luckyxiang'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: "war"
+apply plugin: 'org.springframework.boot'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    testCompile("org.springframework.boot:spring-boot-starter-test:${springboot_version}")
+
+    compile("org.springframework.boot:spring-boot-starter-web:${springboot_version}")
+    compile("org.apache.tomcat.embed:tomcat-embed-jasper")
+    compile("javax.servlet:jstl")
+    compile("org.springframework.boot:spring-boot-starter-actuator:${springboot_version}")
+}

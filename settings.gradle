@@ -1,0 +1,4 @@
+rootProject.name = 'lucyxiang-learning'
+include 'spring-boot-learn'
+include 'spring-boot-learn-jsp'
+

@@ -2,6 +2,7 @@ package com.luckyxiang.service.impl;
 
 import com.luckyxiang.dao.mapper.UserMapper;
 import com.luckyxiang.dao.model.User;
+import com.luckyxiang.dao.repository.UserRepository;
 import com.luckyxiang.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -20,6 +21,9 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     JdbcTemplate jdbcTemplate;
+
+    @Autowired
+    UserRepository userRepository;
 
     @Override
     public User getUser(int id) {
@@ -40,6 +44,11 @@ public class UserServiceImpl implements UserService {
     public List<User> findAllUser() {
 
         return userMapper.findAll();
+    }
+
+    @Override
+    public List<User> findByEmail(String email) {
+        return userRepository.findByEmail(email);
     }
 
 

@@ -10,23 +10,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@RestController
+@Controller
 @RequestMapping("templates")
 public class FHelloController {
-
-    @Autowired
-    UserService userService;
 
 
     @RequestMapping("fhello")
     public String hello(Model model) {
-        String username = userService.getUser(1).getName();
-        model.addAttribute("username", username);
+        model.addAttribute("username", "xuxiang");
         return "fhello";
     }
 
-    @RequestMapping("findAllUser")
-    public List<User> findAllUser() {
-        return userService.findAllUser();
-    }
 }

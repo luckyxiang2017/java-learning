@@ -8,4 +8,7 @@ public interface UserService {
     User getUser(int id);
 
     List<User> findAllUser();
+
+    public List<User> findByEmail(String email);
+
 }
